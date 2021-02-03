@@ -1,33 +1,27 @@
-<form>
+<%= form_with model: @post do |form| %>
   <div class="form-group">
-    <label class="control-label">項目1</label>
-    <input class="form-control" type="text">
+    <label class="control-label">name</label>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <label class="control-label">項目2</label>
+    <label class="control-label">好きな果物</label>
     <div class="radio">
-      <label><input type="radio" name="radio">選択肢1</label>
-      <label><input type="radio" name="radio">選択肢2</label>
-      <label><input type="radio" name="radio">選択肢3</label>
+      <label><%= form.radio_button :like, "りんご" %>りんご</label>
+      <label><%= form.radio_button :like, "みかん" %>みかん</label>
+      <label><%= form.radio_button :like, "なし" %>なし</label>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label">項目3</label>
+    <label class="control-label">嫌いな果物</label>
     <div class="checkbox">
-      <label><input type="checkbox" name="checkbox">選択肢1</label>
-      <label><input type="checkbox" name="checkbox">選択肢2</label>
-      <label><input type="checkbox" name="checkbox">選択肢3</label>
+      <label><%= form.check_box :hate %>りんご</label>
+      <label><%= form.check_box :hate %>みかん</label>
+      <label><%= form.check_box :hate %>なし</label>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label">項目4</label>
-    <select class="form-control">
-      <option>選択肢1</option>
-      <option>選択肢2</option>
-      <option>選択肢3</option>
-      <option>選択肢4</option>
-      <option>選択肢5</option>
-    </select>
+    <label class="control-label">本日の満足度</label>
+    <%= form.select :satisfaction, [["とても良かった", "とても良かった"], ["やや良かった", "やや良かった"], ["普通", "普通"], ["やや良くなかった", "やや良くなかった"], ["悪かった", "悪かった"]], include_blank: "選択して下さい" %>
   </div>
-  <button class="btn btn-default">送信</button>
-</form>
+  <%= form.submit "送信", class: "btn btn-default" %>
+<% end %>

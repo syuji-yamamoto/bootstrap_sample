@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_072644) do
     t.string "name"
     t.string "like"
     t.string "hate"
+    t.integer "times"
     t.string "satisfaction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

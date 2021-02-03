@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style = "margin-bottom:20px">
   <div class="container-fluid">
 		<%= link_to "bootstrap_sample", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,16 +33,17 @@
 </nav>
 
 <main>
-  <% @posts.each do |post| %>
-    <div class="card" style="width: 18rem;">
-      
-      <img src="assets/images/アンケートシート.png" class="card-img-top" alt="アンケートシート">
-      <div class="card-body">
-        <h5 class="card-title"><%= post.name %></h5>
-        <p class="card-text">好きな果物 <%=post.like %></p>
-        <p class="card-text">嫌いな果物 <%=post.hate %></p>
-        <p class="card-text">満足度 <%=post.satisfaction %></p>
+  <div class = card-list style = "display:flex">
+    <% @posts.each do |post| %>
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "icon.png", class: "card-img-top", alt: "アンケート", size: '32x48' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= post.name %></h5>
+          <p class="card-text">好きな果物 <%=post.like %></p>
+          <p class="card-text">嫌いな果物 <%=post.hate %></p>
+          <p class="card-text">満足度 <%=post.satisfaction %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </main>

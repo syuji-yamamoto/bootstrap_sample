@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :like
       t.string :hate
+      t.integer :times
       t.string :satisfaction
       t.timestamps
     end

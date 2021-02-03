@@ -1,6 +1,6 @@
 <%= form_with model: @post do |form| %>
   <div class="form-group">
-    <label class="control-label">name</label>
+    <label class="control-label">果物アンケート</label>
     <%= form.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -13,14 +13,22 @@
   </div>
   <div class="form-group">
     <label class="control-label">嫌いな果物</label>
-    <div class="checkbox">
-      <label><%= form.check_box :hate %>りんご</label>
-      <label><%= form.check_box :hate %>みかん</label>
-      <label><%= form.check_box :hate %>なし</label>
+    <div class="radio">
+      <label><%= form.radio_button :hate, "りんご" %>りんご</label>
+      <label><%= form.radio_button :hate, "みかん" %>みかん</label>
+      <label><%= form.radio_button :hate, "なし" %>なし</label>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label">本日の満足度</label>
+    <label class="control-label">回数</label>
+    <div class="checkbox">
+      <label><%= form.check_box :times %>1 ~ 10</label>
+      <label><%= form.check_box :times %>11 ~ 20</label>
+      <label><%= form.check_box :times %>20 ~ 30</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label">満足度</label>
     <%= form.select :satisfaction, [["とても良かった", "とても良かった"], ["やや良かった", "やや良かった"], ["普通", "普通"], ["やや良くなかった", "やや良くなかった"], ["悪かった", "悪かった"]], include_blank: "選択して下さい" %>
   </div>
   <%= form.submit "送信", class: "btn btn-default" %>

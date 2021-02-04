@@ -53,6 +53,7 @@
           <p class="card-text">回数 <%=post.times %></p>
           <p class="card-text">満足度 <%=post.satisfaction %></p>
         </div>
+        <%= link_to "削除", post_path(post.id), method: :delete, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
